@@ -17,3 +17,4 @@ mqtt:
 
 clean:
 	rm -f ${BUILDFOLDER}/*
+	touch ${BUILDFOLDER}/exist
