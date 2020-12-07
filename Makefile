@@ -5,12 +5,15 @@ CFLAGS=-lpaho-mqttpp3
 CFLAGS+=-lpaho-mqtt3as
 CFLAGS+=-g -Wall -std=c++11
 
-.PHONY: all main clean
+.PHONY: all mqtt main clean
 
-all: clean main
+all: clean mqtt main
 
 main:
-	${CC} -o ${BUILDFOLDER}/main ${SRCFOLDER}/main.cpp ${CFLAGS}
+	${CC} -o ${BUILDFOLDER}/main ${BUILDFOLDER}/*.o ${SRCFOLDER}/main.cpp ${CFLAGS}
+
+mqtt: 
+	${CC} -o ${BUILDFOLDER}/my_mqtt.o -c ${SRCFOLDER}/my_mqtt.cpp ${CFLAGS}
 
 clean:
 	rm -f ${BUILDFOLDER}/*
