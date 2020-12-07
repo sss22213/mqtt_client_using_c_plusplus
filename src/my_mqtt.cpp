@@ -2,13 +2,13 @@
 
 // my_mqtt_service
 my_mqtt::my_mqtt_service::my_mqtt_service(std::string ip, std::string port){
-    this->tcp_address = ip + ":" + port;
+    this->tcp_address = "tcp://" + ip + ":" + port;
     this->client = new mqtt::async_client(this->tcp_address, "0");
     this->conopts = new mqtt::connect_options(); 
 }
 
 my_mqtt::my_mqtt_service::my_mqtt_service(std::string ip, std::string port, std::string user, std::string pwd){
-    this->tcp_address = ip + ":" + port;
+    this->tcp_address = "tcp://" + ip + ":" + port;
     this->client = new mqtt::async_client(this->tcp_address, "0");
     this->conopts = new mqtt::connect_options(user.c_str(), pwd.c_str());
 }
