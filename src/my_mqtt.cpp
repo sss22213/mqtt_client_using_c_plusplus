@@ -1,15 +1,15 @@
 #include "my_mqtt.hpp"
 
 // my_mqtt_service
-my_mqtt::my_mqtt_service::my_mqtt_service(std::string ip, std::string port){
+my_mqtt::my_mqtt_service::my_mqtt_service(std::string ip, std::string port, std::string id){
     this->tcp_address = "tcp://" + ip + ":" + port;
-    this->client = new mqtt::async_client(this->tcp_address, "0");
+    this->client = new mqtt::async_client(this->tcp_address, id);
     this->conopts = new mqtt::connect_options(); 
 }
 
-my_mqtt::my_mqtt_service::my_mqtt_service(std::string ip, std::string port, std::string user, std::string pwd){
+my_mqtt::my_mqtt_service::my_mqtt_service(std::string ip, std::string port, std::string user, std::string pwd, std::string id){
     this->tcp_address = "tcp://" + ip + ":" + port;
-    this->client = new mqtt::async_client(this->tcp_address, "0");
+    this->client = new mqtt::async_client(this->tcp_address, id);
     this->conopts = new mqtt::connect_options(user.c_str(), pwd.c_str());
 }
 

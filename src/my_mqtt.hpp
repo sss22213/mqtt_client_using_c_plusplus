@@ -73,8 +73,8 @@ namespace my_mqtt{
             // connect option
             mqtt::connect_options *conopts;
         public:
-            my_mqtt_service(std::string, std::string);
-            my_mqtt_service(std::string, std::string, std::string, std::string);
+            my_mqtt_service(std::string, std::string, std::string);
+            my_mqtt_service(std::string, std::string, std::string, std::string, std::string);
             ~my_mqtt_service(){};
             mqtt::async_client *client;
             bool connect();

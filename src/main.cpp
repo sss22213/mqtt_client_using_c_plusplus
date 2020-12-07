@@ -7,7 +7,7 @@ void calls(std::string s1){
 
 int main()
 {
-    my_mqtt::my_mqtt_service new_device("", "", "", "");
+    my_mqtt::my_mqtt_service new_device("", "", "", "", "");
     if(!new_device.connect()){
         std::cout << "connect fail" << std::endl;
     }

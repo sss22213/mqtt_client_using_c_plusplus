@@ -54,8 +54,8 @@ void calls(std::string s1){
 int main()
 {
     // connect mqtt server
-    my_mqtt::my_mqtt_service new_device("", "", "", ""); // my_mqtt::my_mqtt_service(std::string ip, std::string port, std::string usaername, std::string password);
-    // my_mqtt::my_mqtt_service new_device("", ""); // my_mqtt::my_mqtt_service(std::string ip, std::string port);
+    my_mqtt::my_mqtt_service new_device("", "", "", "", ""); // my_mqtt::my_mqtt_service(std::string ip, std::string port, std::string usaername, std::string password, std::string id);
+    // my_mqtt::my_mqtt_service new_device("", "", ""); // my_mqtt::my_mqtt_service(std::string ip, std::string port, std::string id);
     if(!new_device.connect()){
         std::cout << "connect fail" << std::endl;
     }
@@ -64,7 +64,7 @@ int main()
     // declare publisher
     my_mqtt::publisher *pub = nh.advertise("TOPIC2"); // advertise(std::string topic_name);
     // declare subscriber
-    my_mqtt::subscriber* subs = nh.subscribe("TRY", calls); //subscribe(void(*callback_function)(std::string));
+    my_mqtt::subscriber *subs = nh.subscribe("TRY", calls); //subscribe(void(*callback_function)(std::string));
     while(true){
         // publish data
         pub->publish("DATA"); // publish(std::string data);
