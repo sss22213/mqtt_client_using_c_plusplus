@@ -42,7 +42,7 @@ make
 ```
 ## Sample:
 
-```Clike=
+```c
 #include "my_mqtt.hpp"
 #include <unistd.h>
 
